@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+     <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            /* font-family: 'IBM Plex Mono', monospace; */
+            font-family: 'Bebas Neue', Arial;
+            font-weight: 700;
+        }
+        #viz-desktop {
+            display: none;
+        }
+        @media(min-width: 620px) {
+            #viz-desktop {
+                display: block;
+            }
+            #viz-mobile {
+                display: none;
+            }
+        }
+        #viz-desktop {
+            width: 100vw;
+            height: calc(100vh - 140px);
+        }
+        #viz-mobile {
+            width: 90vw;
+            margin-left: 5vw;
+            height: calc(100vh - 180px);
+            margin-top: 20px;
+        }
+        svg text {
+            /* letter-spacing: 0.2em; */
+            font-weight: 900;
+            font-weight: 400;
+            font-size: 12px;
+            alignment-baseline: middle;
+            fill: #FFD83C;
+            text-transform: uppercase;
+        }
+        .actual-letter {
+            stroke: #FFD83C;
+            stroke-width: 1px;
+            -webkit-filter: blur(4px);
+            animation: actual-letter-animation 4s linear infinite;
+        }
+        @keyframes actual-letter-animation {
+            0% {
+                opacity: 1;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            20% {
+                opacity: 0.6;
+            }
+            30% {
+                opacity: 0.7;
+            }
+            40% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            60% {
+                opacity: 0.9;
+            }
+            70% {
+                opacity: 0.85;
+            }
+            80% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.9;
+            }
+            100% {
+                opacity: 0.95;
+            }
+        }
+        .embed-container {
+            /* background: #25292c; */
+            /* padding: 20px; */
+            width: 100%;
+            max-width: 340px;
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 16px;
+            overflow:hidden;
+            opacity: 0.5;
+            transition: 200ms opacity;
+        }
+        .embed-container:hover {
+            opacity: 1;
+        }
+        .embed-container iframe {
+            display: block;
+        }
+    </style>
+        
+</head>
+<body>
+
+        
+    <div class="embed-container">
+        <iframe id="best-of-2025-player" width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&autoplay=1&feed=%2Fddaan%2Fbest-of-2025%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+    </div>
+
+    <svg id="viz-mobile" width="243" height="403" viewBox="0 0 243 403" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+        <path id="part-1-mobile" d="M227.63 24.4608C217.872 12.0686 206.093 5.67641 189.256 6.10789C172.42 6.53936 149.182 24.8477 140.979 44.8537C132.777 64.8598 124.796 128.731 139.764 156.769C154.732 184.808 166.419 186.542 182.6 187.6C198.781 188.659 214.579 172.377 222.095 159.012C229.611 145.646 237.354 116.68 238.365 92.1087C239.376 67.5374 237.388 36.8531 227.63 24.4608Z" stroke="white"/>
+        <path id="part-2-mobile" d="M9.49998 32.5C27.3506 7.57228 93.901 -10 110 32.5C126.099 75 103.011 101.627 76.3086 122.532C49.6064 143.438 38 147.5 23.5001 159C9.00025 170.5 3.50006 188.532 18.0001 188.532C32.5001 188.532 28.005 189.286 45.8087 188.532C63.6124 187.779 115 188.532 115 188.532" stroke="white"/>
+        <path id="part-3-mobile" d="M6.1328 237.024C23.9834 212.096 90.5338 194.524 106.633 237.024C122.732 279.524 99.6435 306.151 72.9414 327.057C46.2392 347.962 34.6328 352.024 20.1329 363.524C5.63307 375.024 0.13287 393.057 14.6329 393.057C29.1329 393.057 24.6378 393.81 42.4415 393.057C60.2452 392.303 111.633 393.057 111.633 393.057" stroke="white"/>
+        <path id="part-4-mobile" d="M127.576 371.717C144.43 397.329 205.995 410.832 227.998 375.678C250 340.524 241.619 292.524 204 292.524C166.381 292.524 158.035 301.087 144 289.024C129.965 276.962 135.719 216.141 154.5 216.141C173.281 216.141 153.5 216.141 174.5 216.141C195.5 216.141 235.5 216.141 235.5 216.141" stroke="white"/>
+        </defs>
+
+        <path class="actual-letter" d="M227.63 24.4608C217.872 12.0686 206.093 5.67641 189.256 6.10789C172.42 6.53936 149.182 24.8477 140.979 44.8537C132.777 64.8598 124.796 128.731 139.764 156.769C154.732 184.808 166.419 186.542 182.6 187.6C198.781 188.659 214.579 172.377 222.095 159.012C229.611 145.646 237.354 116.68 238.365 92.1087C239.376 67.5374 237.388 36.8531 227.63 24.4608Z" stroke="white"/>
+        <path class="actual-letter" d="M9.49998 32.5C27.3506 7.57228 93.901 -10 110 32.5C126.099 75 103.011 101.627 76.3086 122.532C49.6064 143.438 38 147.5 23.5001 159C9.00025 170.5 3.50006 188.532 18.0001 188.532C32.5001 188.532 28.005 189.286 45.8087 188.532C63.6124 187.779 115 188.532 115 188.532" stroke="white"/>
+        <path class="actual-letter" d="M6.1328 237.024C23.9834 212.096 90.5338 194.524 106.633 237.024C122.732 279.524 99.6435 306.151 72.9414 327.057C46.2392 347.962 34.6328 352.024 20.1329 363.524C5.63307 375.024 0.13287 393.057 14.6329 393.057C29.1329 393.057 24.6378 393.81 42.4415 393.057C60.2452 392.303 111.633 393.057 111.633 393.057" stroke="white"/>
+        <path class="actual-letter" d="M127.576 371.717C144.43 397.329 205.995 410.832 227.998 375.678C250 340.524 241.619 292.524 204 292.524C166.381 292.524 158.035 301.087 144 289.024C129.965 276.962 135.719 216.141 154.5 216.141C173.281 216.141 153.5 216.141 174.5 216.141C195.5 216.141 235.5 216.141 235.5 216.141" stroke="white"/>
+        
+
+        <text  font-size="5">
+            <textPath href="#part-1-mobile">
+                <animate attributeName="startOffset" 
+                         values="-50%;0%;-50%" 
+                         dur="24s" 
+                         begin="0s" 
+                         repeatCount="indefinite"/>
+                         <tspan></tspan>
+            </textPath>
+            
+            <textPath href="#part-2-mobile">
+                <animate attributeName="startOffset" 
+                         values="-60%;0%;-60%" 
+                         dur="24s"
+                         begin="-18s"  
+                         repeatCount="indefinite"/>
+                         <tspan></tspan>
+            </textPath>
+            
+            <textPath href="#part-3-mobile">
+                <animate attributeName="startOffset" 
+                         values="-100%;0%;-100%" 
+                         dur="24s" 
+                         begin="-4s" 
+                         repeatCount="indefinite"/>
+                         <tspan></tspan>
+            </textPath> 
+            
+            <textPath href="#part-4-mobile">
+                <animate attributeName="startOffset" 
+                         values="-60%;0%;-60%" 
+                         dur="24s" 
+                         begin="-8s"
+                         repeatCount="indefinite"/>
+                         <tspan></tspan>
+            </textPath>
+        </text>
+    </svg>
+        
+        
+        
+    <svg id="viz-desktop" width="487" height="197" viewBox="0 0 487 197" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <path id="part-1" d="M217.262 24.2698C208.726 12.0482 198.295 5.84434 183.243 6.52506C168.192 7.20578 147.153 25.8214 139.526 45.9078C131.898 65.9942 123.818 129.851 136.777 157.609C149.736 185.368 160.155 186.924 174.598 187.74C189.042 188.556 203.402 172.073 210.317 158.623C217.232 145.174 224.582 116.153 225.851 91.6177C227.119 67.0824 225.798 36.4913 217.262 24.2698Z" stroke="black"/>
+            <path id="part-2" d="M9.49998 32.5C27.3506 7.57228 93.901 -10 110 32.5C126.099 75 103.011 101.627 76.3086 122.532C49.6064 143.438 38 147.5 23.5001 159C9.00025 170.5 3.50006 188.532 18.0001 188.532C32.5001 188.532 28.005 189.286 45.8087 188.532C63.6124 187.779 115 188.532 115 188.532" stroke="black"/>
+            <path id="part-3" d="M243.133 32.5C260.983 7.57228 327.534 -10 343.633 32.5C359.732 75 336.644 101.627 309.941 122.532C283.239 143.438 271.633 147.5 257.133 159C242.633 170.5 237.133 188.532 251.633 188.532C266.133 188.532 261.638 189.286 279.441 188.532C297.245 187.779 348.633 188.532 348.633 188.532" stroke="black"/>
+            <path id="part-4" d="M364.576 167.193C381.43 192.804 442.995 206.308 464.998 171.154C487 136 478.619 88 441 88C403.381 88 395.035 96.5626 381 84.5C366.965 72.4374 372.719 11.6164 391.5 11.6164C410.281 11.6164 390.5 11.6164 411.5 11.6164C432.5 11.6164 472.5 11.6164 472.5 11.6164" stroke="black"/>
+        </defs>
+        
+        <path class="actual-letter" d="M217.262 24.2698C208.726 12.0482 198.295 5.84434 183.243 6.52506C168.192 7.20578 147.153 25.8214 139.526 45.9078C131.898 65.9942 123.818 129.851 136.777 157.609C149.736 185.368 160.155 186.924 174.598 187.74C189.042 188.556 203.402 172.073 210.317 158.623C217.232 145.174 224.582 116.153 225.851 91.6177C227.119 67.0824 225.798 36.4913 217.262 24.2698Z" stroke="black"/>
+        <path class="actual-letter" d="M9.49998 32.5C27.3506 7.57228 93.901 -10 110 32.5C126.099 75 103.011 101.627 76.3086 122.532C49.6064 143.438 38 147.5 23.5001 159C9.00025 170.5 3.50006 188.532 18.0001 188.532C32.5001 188.532 28.005 189.286 45.8087 188.532C63.6124 187.779 115 188.532 115 188.532" stroke="black"/>
+        <path class="actual-letter" d="M243.133 32.5C260.983 7.57228 327.534 -10 343.633 32.5C359.732 75 336.644 101.627 309.941 122.532C283.239 143.438 271.633 147.5 257.133 159C242.633 170.5 237.133 188.532 251.633 188.532C266.133 188.532 261.638 189.286 279.441 188.532C297.245 187.779 348.633 188.532 348.633 188.532" stroke="black"/>
+        <path class="actual-letter" d="M364.576 167.193C381.43 192.804 442.995 206.308 464.998 171.154C487 136 478.619 88 441 88C403.381 88 395.035 96.5626 381 84.5C366.965 72.4374 372.719 11.6164 391.5 11.6164C410.281 11.6164 390.5 11.6164 411.5 11.6164C432.5 11.6164 472.5 11.6164 472.5 11.6164" stroke="black"/>
+            
+        <text  font-size="5">
+            <textPath href="#part-1">
+                <animate attributeName="startOffset" 
+                         values="-50%;0%;-50%" 
+                         dur="24s" 
+                         begin="0s" 
+                         repeatCount="indefinite"/>
+                         <tspan></tspan>
+            </textPath>
+            
+            <textPath href="#part-2">
+                <animate attributeName="startOffset" 
+                         values="-60%;0%;-60%" 
+                         dur="24s"
+                         begin="-18s"  
+                         repeatCount="indefinite"/>
+                         <tspan></tspan>
+            </textPath>
+            
+            <textPath href="#part-3">
+                <animate attributeName="startOffset" 
+                         values="-60%;0%;-60%" 
+                         dur="24s" 
+                         begin="-4s" 
+                         repeatCount="indefinite"/>
+                         <tspan></tspan>
+            </textPath> 
+            
+            <textPath href="#part-4">
+                <animate attributeName="startOffset" 
+                         values="-60%;0%;-60%" 
+                         dur="24s" 
+                         begin="-8s"
+                         repeatCount="indefinite"/>
+                         <tspan></tspan>
+            </textPath>
+        </text>
+    </svg>
+    <script src="http://widget.mixcloud.com/media/js/widgetApi.js" type="text/javascript"></script>
+    <script>
+        const tracklist = [
+            {
+                timestamp: 1,
+                artist: "Best of 2025",
+                track: "Best of 2025",
+                bg: "black",
+                fg: "#FFD83C"
+            },
+            {
+                timestamp: 1,
+                artist: "Jameszoo, Asko Schönberg (feat. elİf)",
+                track: "(Hommage à qui)",
+                bg: "black",
+                fg: "#FFD83C"
+            },
+            {
+                timestamp: 246,
+                artist: "Yasmine Hamdan",
+                track: "Hon هون",
+                bg: "black",
+                fg: "orange"
+            },
+            {
+                timestamp: 418,
+                artist: "Yukimi, De La Soul",
+                track: "Jaxon",
+                bg: "#161925",
+                fg: "#F5DFBB"
+            },
+            {
+                timestamp: 491,
+                artist: "Black Country, New Road",
+                track: "Mary",
+                bg: "#F5DFBB",
+                fg: "#ACACDE"
+            },
+            {
+                timestamp: 608,
+                artist: "King Gizzard & The Lizard Wizard",
+                track: "Lonely Cosmos",
+                bg: "#678D58",
+                fg: "#F6E7CB"
+            },
+            {
+                timestamp: 725,
+                artist: "Σtella",
+                track: "Adagio",
+                bg: "#FF8686",
+                fg: "#1968C2"
+            },
+            {
+                timestamp: 849,
+                artist: "Derya Yıldırım & Grup Şimşek",
+                track: "Direne Direne",
+                bg: "#2C2C2C",
+                fg: "#C1839F"
+            },
+            {
+                timestamp: 1002,
+                artist: "Benny Sings, Mathilda Homer",
+                track: "Caviar",
+                bg: "#8C5E58",
+                fg: "#FF7E6B"
+            },
+            {
+                timestamp: 1088,
+                artist: "El Michels Affair, Rogê",
+                track: "Mágica",
+                bg: "#F52F57",
+                fg: "#B18FCF"
+            },
+            {
+                timestamp: 1226,
+                artist: "Obongjayar, Little Simz",
+                track: "Talk Olympics",
+                bg: "#65334D",
+                fg: "#F52F57"
+            },
+            {
+                timestamp: 1337,
+                artist: "FKA twigs - North West",
+                track: "Childlike Things",
+                bg: "#9E0031",
+                fg: "#F29CA3"
+            },
+            {
+                timestamp: 1425,
+                artist: "KAYTRANADA",
+                track: "BLAX",
+                bg: "#2E294E",
+                fg: "#F46036"
+            },
+            {
+                timestamp: 1505,
+                artist: "Bad Bunny",
+                track: "EoO",
+                bg: "#88498F",
+                fg: "#CED0CE"
+            },
+            {
+                timestamp: 1565,
+                artist: "ROSALÍA, Björk",
+                track: "Berghain",
+                bg: "#CED0CE",
+                fg: "#E6E8E6"
+            },
+            {
+                timestamp: 1677,
+                artist: "Clipse, Tyler,The Creator",
+                track: "P.O.V.",
+                bg: "#1B2021",
+                fg: "#7E6C6C"
+            },
+            {
+                timestamp: 1826,
+                artist: "Nia Archives, CLIPZ",
+                track: "Maia Maia",
+                bg: "#EA7AF4",
+                fg: "#820B8A"
+            },
+            {
+                timestamp: 1947,
+                artist: "Fred again.., Skepta",
+                track: "Victory Lap",
+                bg: "#F5B0CB",
+                fg: "#39375B"
+            },
+            {
+                timestamp: 2054,
+                artist: "Sammy Virji, Skepta",
+                track: "Cops & Robbers",
+                bg: "#F5B0CB",
+                fg: "#57467B"
+            },
+            {
+                timestamp: 2138,
+                artist: "Marcello Giombini, Machinedrum",
+                track: "STEEL14",
+                bg: "#57467B",
+                fg: "#E0ACD5"
+            },
+            {
+                timestamp: 2214,
+                artist: "Casey Club",
+                track: "Clutch",
+                bg: "#000000",
+                fg: "#B23A48"
+            },
+            {
+                timestamp: 2297,
+                artist: "MPH",
+                track: "Raw",
+                bg: "#34312D",
+                fg: "#D9C5B2"
+            },
+            {
+                timestamp: 2385,
+                artist: "Soulwax",
+                track: "All Systems Are Lying - Nite Version",
+                bg: "#7E7F83",
+                fg: "#D3FAD6"
+            },
+            {
+                timestamp: 2511,
+                artist: "Tame Impala",
+                track: "End Of Summer",
+                bg: "#FCE694",
+                fg: "#ffffff"
+            },
+            {
+                timestamp: 2600,
+                artist: "Happy 2026",
+                track: "❤❤❤",
+                bg: "#FCE694",
+                fg: "#ffffff"
+            }
+        ]
+
+        var current_track_id = null;
+
+        function findTrackForCurrentPosition(pos) {
+            var track_id = 0;
+            tracklist.some((track, i) => {
+                if (track.timestamp >= pos) return true;
+                track_id = i;
+                return false;
+            })
+
+            if (current_track_id !== track_id) {
+                updateTrackInfo(track_id);
+            }
+        }
+
+        function updateTrackInfo(track_id) {
+            updateText(track_id);
+            updateStyle(track_id)
+        }
+
+        updateTrackInfo(0);
+        window.updateTrackInfo = updateTrackInfo;
+        
+        function updateText(index) {
+            const tspans = document.querySelectorAll("textPath tspan");
+            const content_limit = 220;
+            const tspan_content = [];
+            const track_content = tracklist[index].artist + " - " + tracklist[index].track + "    •••    ";
+
+            for (var i = 0; i < content_limit; i++) {
+                tspan_content.push(track_content[i%track_content.length])
+            }
+
+            for (var j=0; j<tspans.length; j++) {
+                tspans[j].textContent = tspan_content.join("");
+            }
+        }
+
+        var widget = Mixcloud.PlayerWidget(document.getElementById("best-of-2025-player"));
+        widget.ready.then(function() {
+            widget.setOption("light", false)
+            setInterval(() => {
+                widget.getPosition().then((d) => {
+                    findTrackForCurrentPosition(d);
+                })
+            }, 1000)
+        });
+
+        function updateStyle(track_id) {
+            const bg = tracklist[track_id].bg || "black";
+            const fg = tracklist[track_id].fg || "orange";
+            document.body.style.backgroundColor = bg;
+            document.querySelector("#viz-desktop text").style.fill = fg;
+            document.querySelector("#viz-mobile text").style.fill = fg;
+            const actual_letters = document.querySelectorAll(".actual-letter");
+            for (var i = 0; i < actual_letters.length; i++) {
+                actual_letters[i].style.stroke = fg;
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>
