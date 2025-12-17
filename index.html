@@ -26,7 +26,7 @@
         body {
             margin: 0;
             background-color: #000;
-            /* font-family: 'IBM Plex Mono', monospace; */
+            transition: background-color 1s ease;
             font-family: 'Bebas Neue', Arial;
             font-weight: 700;
         }
@@ -43,12 +43,12 @@
         }
         #viz-desktop {
             width: 100vw;
-            height: calc(100vh - 140px);
+            height: calc(100dvh - 140px);
         }
         #viz-mobile {
             width: 90vw;
             margin-left: 5vw;
-            height: calc(100vh - 180px);
+            height: calc(100dvh - 180px);
             margin-top: 20px;
         }
         svg text {
@@ -59,11 +59,14 @@
             alignment-baseline: middle;
             fill: #FFD83C;
             text-transform: uppercase;
+            transition: fill 1s ease;
         }
         .actual-letter {
             stroke: #FFD83C;
             stroke-width: 1px;
             -webkit-filter: blur(4px);
+            filter: blur(4px);
+            transition: stroke 1s ease;
             animation: actual-letter-animation 4s linear infinite;
         }
         @keyframes actual-letter-animation {
@@ -114,7 +117,7 @@
             transform: translateX(-50%);
             border-radius: 16px;
             overflow:hidden;
-            opacity: 0.5;
+            opacity: 0.75;
             transition: 200ms opacity;
         }
         .embed-container:hover {
@@ -168,7 +171,7 @@
             
             <textPath href="#part-3-mobile">
                 <animate attributeName="startOffset" 
-                         values="-100%;0%;-100%" 
+                         values="-50%;0%;-50%" 
                          dur="24s" 
                          begin="-4s" 
                          repeatCount="indefinite"/>
@@ -239,7 +242,7 @@
             </textPath>
         </text>
     </svg>
-    <script src="http://widget.mixcloud.com/media/js/widgetApi.js" type="text/javascript"></script>
+    <script src="//widget.mixcloud.com/media/js/widgetApi.js" type="text/javascript"></script>
     <script>
         const tracklist = [
             {
@@ -321,7 +324,7 @@
             },
             {
                 timestamp: 1337,
-                artist: "FKA twigs - North West",
+                artist: "FKA twigs, North West",
                 track: "Childlike Things",
                 bg: "#9E0031",
                 fg: "#F29CA3"
@@ -446,7 +449,7 @@
             const tspans = document.querySelectorAll("textPath tspan");
             const content_limit = 220;
             const tspan_content = [];
-            const track_content = tracklist[index].artist + " - " + tracklist[index].track + "    •••    ";
+            const track_content = tracklist[index].artist + " - " + tracklist[index].track + " • ";
 
             for (var i = 0; i < content_limit; i++) {
                 tspan_content.push(track_content[i%track_content.length])
